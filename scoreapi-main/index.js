@@ -8,22 +8,18 @@ const path = require("path");
 dotenv.config();
 
 const app = express();
-const allowedOrigins = [
-  "https://ghost-shooter-game.netlify.app",
-  "http://127.0.0.1:5500/",
-];
+const allowedOrigins = ["http://127.0.0.1:5500/"];
 
 // Function to check if the origin is a local development URL
 const isLocalOrigin = (origin) => {
   const localRegex = /^(http:\/\/localhost|http:\/\/127\.0\.0\.1):\d{1,5}$/;
-  console.log("is Local Origin is called");
+
   return localRegex.test(origin);
 };
 
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin) || isLocalOrigin(origin)) {
-      console.log("Local host is allowed");
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
