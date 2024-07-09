@@ -6,7 +6,7 @@ npm install
 
 running server command node start or node index.js
 
-npm run dev to start the project locally after that search below url on browser
+"npm run dev" to start the project locally after that search below url on browser
 
 app is running on http://localhost:3000/ -> 
 
